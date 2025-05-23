@@ -7,17 +7,11 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Copy source code first
-COPY . .
-
-# Install ALL dependencies (including dev dependencies for build)
+# Install dependencies
 RUN npm ci
 
-# Build the application
-RUN npm run build
-
-# Remove dev dependencies after build
-RUN npm prune --production
+# Copy source code
+COPY . .
 
 # Expose port
 EXPOSE 5000
@@ -26,5 +20,5 @@ EXPOSE 5000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost:5000/health || exit 1
 
-# Start the application
-CMD ["npm", "start"]
+# Start the bot directly
+CMD ["npx", "tsx", "server/index.ts"]

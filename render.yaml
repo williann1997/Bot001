@@ -3,8 +3,8 @@ services:
     name: discord-bot-vinhedo
     env: node
     plan: free
-    buildCommand: npm ci && npm run build
-    startCommand: npm start
+    buildCommand: npm ci
+    startCommand: npx tsx server/index.ts
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
