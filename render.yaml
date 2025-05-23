@@ -3,7 +3,7 @@ services:
     name: discord-bot-vinhedo
     env: node
     plan: free
-    buildCommand: npm ci && npx vite build && npx esbuild server/index.prod.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+    buildCommand: npm ci && npm run build
     startCommand: npm start
     healthCheckPath: /health
     envVars:
