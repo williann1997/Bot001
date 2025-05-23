@@ -152,3 +152,52 @@ export function validateSalesData(
 
   return { success: true };
 }
+
+export function validateWelcomeData(name: string, userId: string, role: string): ValidationResult {
+  // Validate name
+  if (!name || name.trim().length < 2) {
+    return {
+      success: false,
+      error: 'Nome deve ter pelo menos 2 caracteres.'
+    };
+  }
+
+  if (name.trim().length > 100) {
+    return {
+      success: false,
+      error: 'Nome não pode exceder 100 caracteres.'
+    };
+  }
+
+  // Validate user ID
+  if (!userId || userId.trim().length < 1) {
+    return {
+      success: false,
+      error: 'ID do usuário é obrigatório.'
+    };
+  }
+
+  if (userId.trim().length > 50) {
+    return {
+      success: false,
+      error: 'ID do usuário não pode exceder 50 caracteres.'
+    };
+  }
+
+  // Validate role
+  if (!role || role.trim().length < 2) {
+    return {
+      success: false,
+      error: 'Cargo deve ter pelo menos 2 caracteres.'
+    };
+  }
+
+  if (role.trim().length > 100) {
+    return {
+      success: false,
+      error: 'Cargo não pode exceder 100 caracteres.'
+    };
+  }
+
+  return { success: true };
+}

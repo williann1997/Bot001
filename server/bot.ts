@@ -3,6 +3,7 @@ import { readyHandler } from './events/ready.js';
 import { interactionCreateHandler } from './events/interactionCreate.js';
 import { farmCommand } from './commands/farm.js';
 import { salesCommand } from './commands/sales.js';
+import { welcomeCommand } from './commands/welcome.js';
 
 export interface BotCommand {
   data: any;
@@ -28,7 +29,7 @@ export class DiscordBot {
   }
 
   private setupCommands() {
-    const commands = [farmCommand, salesCommand];
+    const commands = [farmCommand, salesCommand, welcomeCommand];
     
     for (const command of commands) {
       this.commands.set(command.data.name, command);

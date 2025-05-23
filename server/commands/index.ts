@@ -1,10 +1,12 @@
 import { REST, Routes } from 'discord.js';
 import { farmCommand } from './farm.js';
 import { salesCommand } from './sales.js';
+import { welcomeCommand } from './welcome.js';
 
 const commands = [
   farmCommand.data.toJSON(),
   salesCommand.data.toJSON(),
+  welcomeCommand.data.toJSON(),
 ];
 
 export async function deployCommands() {

@@ -2,6 +2,7 @@ import type { Collection, Interaction } from 'discord.js';
 import type { BotCommand } from '../bot.js';
 import { handleFarmRegistration, handleFarmModalSubmit } from '../commands/farm.js';
 import { handleSaleRegistration, handleSaleModalSubmit } from '../commands/sales.js';
+import { handleMemberRegistration, handleMemberModalSubmit } from '../commands/welcome.js';
 
 export async function interactionCreateHandler(
   interaction: Interaction,
@@ -29,6 +30,9 @@ export async function interactionCreateHandler(
         case 'register_sale':
           await handleSaleRegistration(interaction);
           break;
+        case 'register_member':
+          await handleMemberRegistration(interaction);
+          break;
         default:
           console.log(`Unknown button interaction: ${interaction.customId}`);
       }
@@ -42,6 +46,9 @@ export async function interactionCreateHandler(
           break;
         case 'sale_modal':
           await handleSaleModalSubmit(interaction);
+          break;
+        case 'member_modal':
+          await handleMemberModalSubmit(interaction);
           break;
         default:
           console.log(`Unknown modal submission: ${interaction.customId}`);
