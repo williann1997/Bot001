@@ -1,21 +1,20 @@
 services:
   - type: web
-    name: discord-bot
+    name: discord-bot-vinhedo
     env: node
+    plan: free
     buildCommand: npm install && npm run build
     startCommand: npm start
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
-      - key: DISCORD_BOT_TOKEN
+      - key: DISCORD_TOKEN
         sync: false
       - key: DISCORD_CLIENT_ID
         sync: false
       - key: DISCORD_GUILD_ID
-        value: "1373298275700047963"
-      - key: FARM_ADMIN_CHANNEL_ID
-        value: "1374559903414227155"
-      - key: SALES_ADMIN_CHANNEL_ID
-        value: "1374613709770723440"
-      - key: WELCOME_ADMIN_CHANNEL_ID
-        value: "1374559903414227155"
+        sync: false
+    autoDeploy: true
+    regions:
+      - ohio
