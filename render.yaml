@@ -4,7 +4,7 @@ services:
     env: node
     plan: free
     buildCommand: npm ci
-    startCommand: npx tsx server/index.ts
+    startCommand: npx tsx server/index.prod.ts
     healthCheckPath: /health
     envVars:
       - key: NODE_ENV
