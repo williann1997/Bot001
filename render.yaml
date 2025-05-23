@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: discord-bot
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DISCORD_BOT_TOKEN
+        sync: false
+      - key: DISCORD_CLIENT_ID
+        sync: false
+      - key: DISCORD_GUILD_ID
+        value: "1373298275700047963"
+      - key: FARM_ADMIN_CHANNEL_ID
+        value: "1374559903414227155"
+      - key: SALES_ADMIN_CHANNEL_ID
+        value: "1374613709770723440"
+      - key: WELCOME_ADMIN_CHANNEL_ID
+        value: "1374559903414227155"
